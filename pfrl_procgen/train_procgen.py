@@ -24,15 +24,16 @@ def parse_args():
     parser.add_argument(
         '--distribution-mode', type=str, default='easy',
         choices=['easy', 'hard', 'exploration', 'memory', 'extreme'])
-    parser.add_argument('--env-name', type=str, default='maze')
+    parser.add_argument('--env-name', type=str, default='bigfish')
     parser.add_argument('--num-envs', type=int, default=64)
     parser.add_argument('--num-levels', type=int, default=200)
     parser.add_argument('--start-level', type=int, default=100)
     parser.add_argument('--num-threads', type=int, default=4)
-    parser.add_argument('--exp-name', type=str, default='trial01')
     parser.add_argument('--log-dir', type=str, default='./log')
     parser.add_argument('--model-file', type=str, default=None)
+
     parser.add_argument('--method-label', type=str, default='vanilla')
+    parser.add_argument('--exp-name', type=str, default='gamma')
 
     # PPO parameters.
     parser.add_argument('--gpu', type=int, default=0)
@@ -46,7 +47,7 @@ def parse_args():
     parser.add_argument('--nsteps', type=int, default=256)
     parser.add_argument('--batch-size', type=int, default=8)
     parser.add_argument('--nepochs', type=int, default=3)
-    parser.add_argument('--max-steps', type=int, default=25_000_000)
+    parser.add_argument('--max-steps', type=int, default=10_000_000)
     parser.add_argument('--save-interval', type=int, default=100)
 
     return parser.parse_args()
@@ -213,10 +214,12 @@ def run():
     logger.configure(dir=log_dir, format_strs=['csv', 'stdout'])
 
     wandb_name = f"{configs.exp_name}_{configs.env_name}_{configs.num_levels}_{configs.distribution_mode}_{configs.method_label}"
-    wandb.init(project="sb3",
+    wandb.init(project='ICDE',
                      name=wandb_name,
                      entity="mingatum",
                      save_code=True, )
+    wandb.config.update(configs)
+
 
     # Create venvs.
     train_venv = create_venv(configs, is_valid=False)

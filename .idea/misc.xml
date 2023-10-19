@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" project-jdk-name="hazard" project-jdk-type="Python SDK" />
+  <component name="Black">
+    <option name="sdkName" value="hazard" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.8.16 (sftp://jueming@10.113.164.100:22/home/jueming/anaconda3/envs/sb3/bin/python)" project-jdk-type="Python SDK" />
 </project>

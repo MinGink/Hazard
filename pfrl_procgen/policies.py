@@ -53,7 +53,7 @@ class ConvSequence(nn.Module):
 
 
 class ImpalaCNN(nn.Module):
-    """Network from IMPALA paper, to work with pfrl."""
+    """Network from IMPALA paper, to work with pfrl_procgen."""
 
     def __init__(self, obs_space, num_outputs):
 

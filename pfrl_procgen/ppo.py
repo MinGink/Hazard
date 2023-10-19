@@ -269,7 +269,7 @@ class PPO(agent.AttributeSavingMixin, agent.BatchAgent):
             clipped on updates.
         standardize_advantages (bool): Use standardized advantages on updates
         recurrent (bool): If set to True, `model` is assumed to implement
-            `pfrl.nn.Recurrent` and update in a recurrent
+            `pfrl_procgen.nn.Recurrent` and update in a recurrent
             manner.
         max_recurrent_sequence_len (int): Maximum length of consecutive
             sequences of transitions in a minibatch for updatig the model.
