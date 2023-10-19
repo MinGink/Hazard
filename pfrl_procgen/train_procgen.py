@@ -24,7 +24,7 @@ def parse_args():
     parser.add_argument(
         '--distribution-mode', type=str, default='easy',
         choices=['easy', 'hard', 'exploration', 'memory', 'extreme'])
-    parser.add_argument('--env-name', type=str, default='bigfish')
+    parser.add_argument('--env-name', type=str, default='miner')
     parser.add_argument('--num-envs', type=int, default=64)
     parser.add_argument('--num-levels', type=int, default=200)
     parser.add_argument('--start-level', type=int, default=100)
@@ -47,7 +47,7 @@ def parse_args():
     parser.add_argument('--nsteps', type=int, default=256)
     parser.add_argument('--batch-size', type=int, default=8)
     parser.add_argument('--nepochs', type=int, default=3)
-    parser.add_argument('--max-steps', type=int, default=10_000_000)
+    parser.add_argument('--max-steps', type=int, default=25_000_000)
     parser.add_argument('--save-interval', type=int, default=100)
 
     return parser.parse_args()
